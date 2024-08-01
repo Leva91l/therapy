@@ -6,11 +6,15 @@
 </head>
 <body>
 {% for m in menu %}
-    <b> {{ m.title }}</b>
+    <h1><a href="{% url 'contacts' %}">{{ m.title }}</a></h1>
 {% endfor %}
 
 {% for cat in cats %}
-    <a href="{% url 'product' cat.id %}">{{ cat.name }}</a>
+
+    <h3><a href="{% url 'product' cat.id %}">{{ cat.name }}</a></h3>
+    {% if cat.photo %}
+        <p><img src="{{ cat.photo.url }}"></p>
+    {% endif %}
 {% endfor %}
 
 

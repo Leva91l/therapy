@@ -7,9 +7,7 @@ from main.models import Category, Product
 #
 # def add_new_product(request):
 menu = [
-    {'title': 'Каталог'},
-    {'title': 'Контакты'},
-    {'title': 'Войти'}
+    {'title': 'Контакты', 'url_link': 'contacts'}
 ]
 
 
@@ -47,4 +45,7 @@ def prodview(request, prod_id):
     }
     return render(request, 'products.html', context)
 
+
 # сформировать категории на главной странице(написать view функцию, либо передать в контекст )
+def contacts(reqest):
+    return render(reqest, 'contacts.html')
