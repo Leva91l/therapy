@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Therapy</title>
+</head>
+<body>
+{% for m in menu %}
+    <b> {{ m.title }}</b>
+{% endfor %}
+
+{% for cat in cats %}
+    <a href="{% url 'product' cat.id %}">{{ cat.name }}</a>
+{% endfor %}
+
+
+</body>
+</html>
