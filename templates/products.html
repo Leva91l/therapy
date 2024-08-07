@@ -1,16 +1,25 @@
+{% load main_tags %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
+
 <body>
+{% for m in menu %}
+    <h1><a href="{% url m.url_link %}">{{ m.title }}</a></h1>
+{% endfor %}
 {% for c in category %}
     <h1><b>{{ c.name }}</b></h1>
 {% endfor %}
-
 {% for p in product %}
-    <p>{{ p.name }}</p>
+    <div>
+        <h3>{{ p.name }}</h3>
+        <p><img src="{{ p.photo.url }}"></p>
+        <p>{{ p.content|linebreaks|truncatewords:50 }}</p>
+        <a href="{% url 'productinfo' p.slug %}"><button><b>Перейти к товару</b></button></a>        
+    </div>
 {% endfor %}
 
 </body>

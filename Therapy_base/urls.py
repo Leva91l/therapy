@@ -24,10 +24,11 @@ from main.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', homepage, name='homepage'),
-    path('newproduct/', new_product),
-    path('product/<int:prod_id>/', prodview, name='product'),
-    path('contacts/', contacts, name='contacts')
+    path('product/<slug:prod_slug>/', prodview, name='product'),
+    path('contacts/', contacts, name='contacts'),
+    path('productinfo/<slug:product_slug>/', productinfo, name='productinfo'),
+    path('coop/', coop, name='coop'),
 
 ]
 
-urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

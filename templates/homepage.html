@@ -1,22 +1,18 @@
+{% load static %}
+{% load main_tags %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Therapy</title>
+    <link type="text/css" href="{% static 'css/styles.css' %}" rel="stylesheet"/>
 </head>
 <body>
 {% for m in menu %}
-    <h1><a href="{% url 'contacts' %}">{{ m.title }}</a></h1>
+    <h1><a href="{% url m.url_link %}">{{ m.title }}</a></h1>
 {% endfor %}
 
-{% for cat in cats %}
-
-    <h3><a href="{% url 'product' cat.id %}">{{ cat.name }}</a></h3>
-    {% if cat.photo %}
-        <p><img src="{{ cat.photo.url }}"></p>
-    {% endif %}
-{% endfor %}
-
+{% show_categories %}
 
 </body>
 </html>

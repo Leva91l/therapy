@@ -1,0 +1,7 @@
+{% for cat in cats %}
+    <h3><a href="{% url 'product' cat.slug %}">{{ cat.name }}</a></h3>
+    {% if cat.photo %}
+        <p><img src="{{ cat.photo.url }}" alt="Фото"></p>
+    {% endif %}
+    {{ cat.content }}
+{% endfor %}
